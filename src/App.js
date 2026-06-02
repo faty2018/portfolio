@@ -31,7 +31,7 @@ const PROJECTS = [
   description: "Application mobile de détection des maladies des plantes basée sur un modèle de deep learning MobileNetV2. Le système analyse des images et identifie 15 classes de maladies avec une précision de 95%. Le projet combine IA, cloud et assistance intelligente pour aider les agriculteurs à diagnostiquer rapidement les problèmes des cultures.",
   stack: ['React Native', 'Flask', 'TensorFlow', 'OpenAI API', 'SQLite'],
   emoji: '🌿',
-  }
+  },
   {
     title: 'RecoHousing',
     subtitle: 'Système de recommandation immobilière',
