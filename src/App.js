@@ -26,6 +26,13 @@ const CERTIFICATES = [
 
 const PROJECTS = [
   {
+  title: 'PlantScan',
+  subtitle: 'Détection intelligente des maladies des plantes',
+  description: "Application mobile de détection des maladies des plantes basée sur un modèle de deep learning MobileNetV2. Le système analyse des images et identifie 15 classes de maladies avec une précision de 95%. Le projet combine IA, cloud et assistance intelligente pour aider les agriculteurs à diagnostiquer rapidement les problèmes des cultures.",
+  stack: ['React Native', 'Flask', 'TensorFlow', 'OpenAI API', 'SQLite'],
+  emoji: '🌿',
+  }
+  {
     title: 'RecoHousing',
     subtitle: 'Système de recommandation immobilière',
     description: "Application web de recommandation de logements basée sur l'historique et les favoris des utilisateurs. Modélisation des relations utilisateur-logement avec une base de données graphe.",
