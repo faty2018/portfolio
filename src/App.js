@@ -4,16 +4,23 @@ import './App.css';
 const NAV_LINKS = ['À propos', 'Compétences', 'Projets', 'Certifications', 'Contact'];
 
 const SKILLS = [
-  { category: 'Langages', items: ['Python', 'JavaScript', 'PHP', 'C++', 'Java'] },
-  { category: 'Développement Web', items: ['React', 'Laravel', 'Django', 'Symfony', 'Bootstrap', 'jQuery', 'HTML', 'CSS'] },
-  { category: 'Data Science & IA', items: ['Analyse de données', 'Data Mining', 'Deep Learning', 'Big Data', 'Systèmes multi-agents'] },
-  { category: 'Bases de données', items: ['MySQL', 'PostgreSQL', 'MongoDB', 'Neo4j', 'Oracle', 'SQL Server', 'Cassandra'] },
-  { category: 'Cloud & Systèmes', items: ['Linux', 'Microsoft Azure', 'Virtualisation'] },
+  { category: 'IA & Machine Learning', items: ['Machine Learning', 'Deep Learning', 'PyTorch', 'TensorFlow', 'Scikit-learn', 'Computer Vision', 'NLP', 'Transfer Learning', 'Hugging Face Transformers', 'IA explicable (EigenCAM)'] },
+  { category: 'IA Générative & Agents', items: ['LLM (Groq, OpenAI API)', 'RAG', 'LangChain', 'LangGraph', 'Systèmes multi-agents', 'MCP', 'Prompt Engineering'] },
+  { category: 'Data Engineering & BI', items: ['Airflow', 'Apache Spark', 'Hadoop', 'MinIO', 'ETL', 'Architecture Médaillon', 'Data Warehousing', 'Web Scraping', 'Power BI', 'Pandas', 'NumPy', 'Statistiques'] },
+  { category: 'Langages', items: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'Java', 'PHP', 'C++'] },
+  { category: 'Développement Web & Mobile', items: ['React', 'Next.js', 'React Native', 'HTML', 'CSS', 'Bootstrap', 'FastAPI', 'Flask', 'Django', 'Node.js', 'Laravel', 'Symfony', 'REST', 'Postman'] },
+  { category: 'Bases de données', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Neo4j', 'Supabase'] },
+  { category: 'DevOps & Cloud', items: ['Docker', 'GitHub Actions (CI/CD)', 'MLflow', 'Linux', 'Microsoft Azure'] },
   { category: 'Réseaux & IoT', items: ['TCP/IP', 'VLAN', 'Cisco Packet Tracer', 'IoT'] },
-  { category: 'Outils & Méthodes', items: ['Git', 'Agile Scrum', 'UML'] },
+  { category: 'Outils & Méthodes', items: ['Git', 'Agile Scrum', 'UML', 'Merise'] },
 ];
 
+// TODO: renseigne la date et le lien de vérification des 3 premiers certificats
+// (sans lien, la carte s'affiche normalement mais n'est pas cliquable)
 const CERTIFICATES = [
+  { title: 'Applications of AI for Anomaly Detection', issuer: 'NVIDIA', date: '', color: '#76b900', link: '' },
+  { title: 'Oracle AI Agent Studio, Foundations Associate', issuer: 'Oracle', date: '', color: '#c74634', link: '' },
+  { title: 'Agile Project Management', issuer: 'Google', date: '', color: '#4285f4', link: '' },
   { title: 'What is Data Science?', issuer: 'IBM', date: 'Mar 2026', color: '#0530ad', link: 'https://www.coursera.org/account/accomplishments/verify/QSMKEK8RPV9Z' },
   { title: 'React Native', issuer: 'Meta', date: 'Déc 2025', color: '#0082fb', link: 'https://www.coursera.org/account/accomplishments/verify/NJU1A1UPYL8A' },
   { title: 'React Basics', issuer: 'Meta', date: 'Déc 2025', color: '#0082fb', link: 'https://www.coursera.org/account/accomplishments/verify/PNA3VI9T0ZKQ' },
@@ -26,11 +33,39 @@ const CERTIFICATES = [
 
 const PROJECTS = [
   {
-  title: 'PlantScan',
-  subtitle: 'Détection intelligente des maladies des plantes',
-  description: "Application mobile de détection des maladies des plantes basée sur un modèle de deep learning MobileNetV2. Le système analyse des images et identifie 15 classes de maladies avec une précision de 95%. Le projet combine IA, cloud et assistance intelligente pour aider les agriculteurs à diagnostiquer rapidement les problèmes des cultures.",
-  stack: ['React Native', 'Flask', 'TensorFlow', 'OpenAI API', 'SQLite'],
-  emoji: '🌿',
+    title: 'Safqa',
+    subtitle: "Plateforme SaaS d'analyse des appels d'offres par IA",
+    description: "Plateforme SaaS B2B multi-tenant (web + mobile) de veille et de réponse aux appels d'offres publics marocains. Collecte automatisée avec Playwright, analyse par LLM d'environ 195 appels d'offres par jour (1400+ collectés), génération assistée de réponses et alertes e-mail. Conçue et développée en autonomie lors de mon stage chez IAAI Academy.",
+    stack: ['Next.js', 'TypeScript', 'Supabase', 'React Native', 'Playwright', 'Groq'],
+    emoji: '📑',
+  },
+  {
+    title: 'PlantScan Maroc',
+    subtitle: 'Détection intelligente des maladies des plantes',
+    description: "Application mobile de diagnostic des maladies de plantes. Un modèle MobileNetV2 entraîné sur PlantVillage classe 15 maladies avec 93 % d'accuracy sur un test set indépendant de 3 096 images, avec explicabilité EigenCAM. Le projet inclut une application React Native, une API Flask et des conseils agricoles générés via l'API OpenAI.",
+    stack: ['React Native', 'Flask', 'PyTorch', 'MobileNetV2', 'OpenAI API'],
+    emoji: '🌿',
+  },
+  {
+    title: 'Système multi-agents médical',
+    subtitle: 'Consultation médicale avec LangGraph',
+    description: "Prototype d'assistant de consultation médicale reposant sur 4 agents spécialisés orchestrés avec LangGraph, exposés via FastAPI et le protocole MCP, avec interface React (4 écrans), intégration LangGraph Studio et export PDF.",
+    stack: ['LangGraph', 'LangChain', 'FastAPI', 'MCP', 'React', 'Python'],
+    emoji: '🩺',
+  },
+  {
+    title: 'Pipeline Big Data',
+    subtitle: 'Scraping & architecture Médaillon',
+    description: "Pipeline de données de bout en bout : scraping automatisé de 3 sources d'actualités (Hespress, Médias24, BBC News), orchestré par Airflow, avec architecture Médaillon (Bronze → Silver → Gold) sur MinIO et PostgreSQL, et dashboard Chart.js.",
+    stack: ['Python', 'BeautifulSoup', 'MinIO', 'PostgreSQL', 'Airflow', 'Docker', 'Chart.js'],
+    emoji: '🗄️',
+  },
+  {
+    title: 'Mouwakib-Doc',
+    subtitle: 'Assistant RAG sur documents',
+    description: "Assistant de questions-réponses sur documents (RAG) avec LangChain, FAISS et ChromaDB, routage dynamique entre GPT-3.5 et GPT-4 et mémoire de conversation.",
+    stack: ['LangChain', 'FAISS', 'ChromaDB', 'OpenAI API', 'Python'],
+    emoji: '🤖',
   },
   {
     title: 'RecoHousing',
@@ -139,10 +174,11 @@ export default function App() {
             <em> Tayebi</em>
           </h1>
           <p className="hero-desc">
-Étudiante ingénieure en 4ème année spécialisée en Intelligence Artificielle et Data Science, passionnée 
-  par la création de solutions intelligentes. Je combine expertise en développement 
-  full stack et en data science pour construire des applications modernes et des 
-  systèmes d'IA performants.
+            Étudiante ingénieure en 5ème année spécialisée en Intelligence Artificielle et Data Science,
+            passionnée par la conception de solutions intelligentes : machine learning, IA générative,
+            systèmes multi-agents et pipelines de données, jusqu'à l'application web et mobile.
+            À la recherche d'un stage PFE à partir de février 2027 en Machine Learning, IA,
+            Data Science ou Data Engineering.
           </p>
           <div className="hero-actions">
             <button className="btn btn--primary" onClick={() => scrollTo('projects')}>
@@ -153,19 +189,19 @@ export default function App() {
             </button>
           </div>
           <div className="hero-socials">
-            <a href="https://github.com/" target="_blank" rel="noreferrer" className="social-link">GitHub</a>
+            <a href="https://github.com/faty2018" target="_blank" rel="noreferrer" className="social-link">GitHub</a>
             <span className="dot" />
-            <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="social-link">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/fatima-zahra-tayebi-784351279/" target="_blank" rel="noreferrer" className="social-link">LinkedIn</a>
             <span className="dot" />
-            <a href="mailto:fati@example.com" className="social-link">Email</a>
+            <a href="mailto:fatimazahratayebi2@gmail.com" className="social-link">Email</a>
           </div>
         </div>
         <div className="hero-visual">
           <div className="avatar-ring">
             <div className="avatar-initials">FT</div>
           </div>
-          <div className="floating-badge badge-1">React</div>
-          <div className="floating-badge badge-2">Django</div>
+          <div className="floating-badge badge-1">PyTorch</div>
+          <div className="floating-badge badge-2">LangGraph</div>
           <div className="floating-badge badge-3">Python</div>
         </div>
       </section>
@@ -222,15 +258,26 @@ export default function App() {
           <h2 className="section-title">Formations & certifications</h2>
         </div>
         <div className="certs-grid">
-          {CERTIFICATES.map((c) => (
-            <a key={c.title} href={c.link} target="_blank" rel="noreferrer" className="cert-card">
-              <div className="cert-dot" style={{ background: c.color }} />
-              <div className="cert-body">
-                <p className="cert-title">{c.title}</p>
-                <p className="cert-meta">{c.issuer} · {c.date}</p>
+          {CERTIFICATES.map((c) => {
+            const inner = (
+              <>
+                <div className="cert-dot" style={{ background: c.color }} />
+                <div className="cert-body">
+                  <p className="cert-title">{c.title}</p>
+                  <p className="cert-meta">{c.issuer}{c.date ? ` · ${c.date}` : ''}</p>
+                </div>
+              </>
+            );
+            return c.link ? (
+              <a key={c.title} href={c.link} target="_blank" rel="noreferrer" className="cert-card">
+                {inner}
+              </a>
+            ) : (
+              <div key={c.title} className="cert-card">
+                {inner}
               </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
       </section>
 
